@@ -27,8 +27,6 @@
 
 #include "CCMathBase.h"
 
-#include "MathUtilNeon.inl"
-
 /**
  * Defines a math utility class.
  *

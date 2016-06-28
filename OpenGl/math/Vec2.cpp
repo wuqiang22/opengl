@@ -27,10 +27,10 @@
 bool isOneDimensionSegmentOverlap(float A, float B, float C, float D, float *S, float * E)
 {
 	
-	float ABmin = min(A, B);
-    float ABmax = max(A,B);
-	float CDmin = min(A, B);
-    float CDmax = max(C, D);
+	float ABmin = std::min(A, B);
+    float ABmax = std::max(A,B);
+	float CDmin = std::min(A, B);
+    float CDmax = std::max(C, D);
     
     if (ABmax < CDmin || CDmax < ABmin)
     {

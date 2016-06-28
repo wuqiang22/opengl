@@ -50,7 +50,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)glfw3;$(SolutionDir)base;$(SolutionDir)glew\GL;$(SolutionDir)glew;$(SolutionDir)math;$(SolutionDir)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -88,6 +88,7 @@
     <ClInclude Include="..\base\CCStdC.h" />
     <ClInclude Include="..\base\ccTypes.h" />
     <ClInclude Include="..\base\CommonMacros.h" />
+    <ClInclude Include="..\base\CommonUtil.h" />
     <ClInclude Include="..\base\GLView.h" />
     <ClInclude Include="..\base\PlatformMacros.h" />
     <ClInclude Include="..\glew\GL\glew.h" />
@@ -109,6 +110,7 @@
     <ClInclude Include="..\math\Vec4.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\base\CommonUtil.cpp" />
     <ClCompile Include="..\base\GLView.cpp" />
     <ClCompile Include="..\base\ccType.cpp" />
     <ClCompile Include="..\math\CCAffineTransform.cpp" />
@@ -127,9 +129,6 @@
   <ItemGroup>
     <None Include="..\math\Mat4.inl" />
     <None Include="..\math\MathUtil.inl" />
-    <None Include="..\math\MathUtilNeon.inl" />
-    <None Include="..\math\MathUtilNeon64.inl" />
-    <None Include="..\math\MathUtilSSE.inl" />
     <None Include="..\math\Quaternion.inl" />
     <None Include="..\math\Vec2.inl" />
     <None Include="..\math\Vec3.inl" />

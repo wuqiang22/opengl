@@ -1,204 +1,29 @@
-﻿Build started 2016/6/26 18:35:46.
+﻿Build started 2016/6/28 18:05:46.
      1>Project "E:\cppproject\OpenGl\CreateWindow\CreateWindow.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(942,5): warning MSB8027: Two or more files with the name of GLView.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are ..\base\GLView.cpp, GLView.cpp.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IE:\cppproject\OpenGl\glfw3 /IE:\cppproject\OpenGl\base /IE:\cppproject\OpenGl\glew\GL /IE:\cppproject\OpenGl\glew /IE:\cppproject\OpenGl\math /IE:\cppproject\OpenGl\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\math\CCGeometry.cpp ..\math\Mat4.cpp ..\math\MathUtil.cpp ..\math\Vec2.cpp ..\math\Vec3.cpp ..\math\Vec4.cpp
-         Vec4.cpp
-     1>e:\cppproject\opengl\base\commonmacros.h(53): warning C4005: 'CC_BREAK_IF' : macro redefinition
-                 e:\cppproject\opengl\base\commonmacros.h(18) : see previous definition of 'CC_BREAK_IF'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(47): error C2400: inline assembler syntax error in 'opcode'; found 'data type'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(62): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(65): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(70): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(83): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(86): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(91): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(104): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(107): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(112): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(124): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(127): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(132): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(161): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(164): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(169): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(180): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(183): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(188): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(196): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(199): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(204): error C2400: inline assembler syntax error in 'opcode'; found 'movhps'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(219): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(222): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(227): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(239): error C2143: syntax error : missing ')' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(242): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(247): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(264): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(267): error C2059: syntax error : ')'
-         Vec3.cpp
-     1>e:\cppproject\opengl\base\commonmacros.h(53): warning C4005: 'CC_BREAK_IF' : macro redefinition
-                 e:\cppproject\opengl\base\commonmacros.h(18) : see previous definition of 'CC_BREAK_IF'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(47): error C2400: inline assembler syntax error in 'opcode'; found 'data type'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(62): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(65): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(70): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(83): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(86): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(91): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(104): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(107): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(112): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(124): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(127): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(132): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(161): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(164): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(169): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(180): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(183): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(188): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(196): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(199): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(204): error C2400: inline assembler syntax error in 'opcode'; found 'movhps'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(219): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(222): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(227): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(239): error C2143: syntax error : missing ')' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(242): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(247): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(264): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(267): error C2059: syntax error : ')'
-         Vec2.cpp
-     1>e:\cppproject\opengl\base\commonmacros.h(53): warning C4005: 'CC_BREAK_IF' : macro redefinition
-                 e:\cppproject\opengl\base\commonmacros.h(18) : see previous definition of 'CC_BREAK_IF'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(47): error C2400: inline assembler syntax error in 'opcode'; found 'data type'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(62): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(65): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(70): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(83): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(86): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(91): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(104): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(107): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(112): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(124): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(127): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(132): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(161): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(164): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(169): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(180): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(183): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(188): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(196): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(199): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(204): error C2400: inline assembler syntax error in 'opcode'; found 'movhps'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(219): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(222): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(227): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(239): error C2143: syntax error : missing ')' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(242): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(247): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(264): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(267): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\vec2.cpp(250): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>e:\cppproject\opengl\math\vec2.cpp(251): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>e:\cppproject\opengl\math\vec2.cpp(259): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>e:\cppproject\opengl\math\vec2.cpp(260): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-         MathUtil.cpp
-     1>e:\cppproject\opengl\base\commonmacros.h(53): warning C4005: 'CC_BREAK_IF' : macro redefinition
-                 e:\cppproject\opengl\base\commonmacros.h(18) : see previous definition of 'CC_BREAK_IF'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(47): error C2400: inline assembler syntax error in 'opcode'; found 'data type'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(62): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(65): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(70): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(83): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(86): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(91): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(104): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(107): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(112): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(124): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(127): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(132): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(161): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(164): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(169): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(180): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(183): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(188): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(196): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(199): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(204): error C2400: inline assembler syntax error in 'opcode'; found 'movhps'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(219): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(222): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(227): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(239): error C2143: syntax error : missing ')' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(242): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(247): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(264): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(267): error C2059: syntax error : ')'
-         Mat4.cpp
-     1>e:\cppproject\opengl\base\commonmacros.h(53): warning C4005: 'CC_BREAK_IF' : macro redefinition
-                 e:\cppproject\opengl\base\commonmacros.h(18) : see previous definition of 'CC_BREAK_IF'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(47): error C2400: inline assembler syntax error in 'opcode'; found 'data type'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(62): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(65): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(70): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(83): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(86): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(91): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(104): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(107): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(112): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(124): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(127): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(132): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(161): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(164): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(169): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(180): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(183): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(188): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(196): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(199): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(204): error C2400: inline assembler syntax error in 'opcode'; found 'movhps'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(219): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(222): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(227): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(239): error C2143: syntax error : missing ')' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(242): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(247): error C2400: inline assembler syntax error in 'opcode'; found 'no token'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(264): error C2143: syntax error : missing ';' before ':'
-     1>e:\cppproject\opengl\math\mathutilneon.inl(267): error C2059: syntax error : ')'
-     1>e:\cppproject\opengl\math\mat4.cpp(105): warning C4805: '!=' : unsafe mix of type 'bool' and type 'float' in operation
-     1>e:\cppproject\opengl\math\mat4.cpp(111): error C3861: 'CCLOGERROR': identifier not found
-     1>e:\cppproject\opengl\math\mat4.cpp(139): warning C4805: '!=' : unsafe mix of type 'bool' and type 'float' in operation
-     1>e:\cppproject\opengl\math\mat4.cpp(140): warning C4805: '!=' : unsafe mix of type 'bool' and type 'float' in operation
-     1>e:\cppproject\opengl\math\mat4.cpp(141): warning C4805: '!=' : unsafe mix of type 'bool' and type 'float' in operation
-         CCGeometry.cpp
-     1>e:\cppproject\opengl\base\commonmacros.h(53): warning C4005: 'CC_BREAK_IF' : macro redefinition
-                 e:\cppproject\opengl\base\commonmacros.h(18) : see previous definition of 'CC_BREAK_IF'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(200): error C2589: '(' : illegal token on right side of '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(200): error C2059: syntax error : '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(201): error C2589: '(' : illegal token on right side of '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(201): error C2059: syntax error : '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(202): error C2589: '(' : illegal token on right side of '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(202): error C2059: syntax error : '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(203): error C2589: '(' : illegal token on right side of '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(203): error C2059: syntax error : '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(238): error C2589: '(' : illegal token on right side of '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(238): error C2059: syntax error : '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(239): error C2589: '(' : illegal token on right side of '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(239): error C2059: syntax error : '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(240): error C2589: '(' : illegal token on right side of '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(240): error C2059: syntax error : '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(241): error C2589: '(' : illegal token on right side of '::'
-     1>e:\cppproject\opengl\math\ccgeometry.cpp(241): error C2059: syntax error : '::'
-         Generating Code...
-     1>Done Building Project "E:\cppproject\OpenGl\CreateWindow\CreateWindow.vcxproj" (Build target(s)) -- FAILED.
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IE:\cppproject\OpenGl\glfw3 /IE:\cppproject\OpenGl\base /IE:\cppproject\OpenGl\glew\GL /IE:\cppproject\OpenGl\glew /IE:\cppproject\OpenGl\math /IE:\cppproject\OpenGl\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GLView.cpp
+         GLView.cpp
+     1>e:\cppproject\opengl\createwindow\glview.cpp(284): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\cppproject\OpenGl\Debug\CreateWindow.exe" /INCREMENTAL /NOLOGO /LIBPATH:E:\cppproject\OpenGl\lib glfw3.lib opengl32.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmtd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\cppproject\OpenGl\Debug\CreateWindow.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\cppproject\OpenGl\Debug\CreateWindow.lib" /MACHINE:X86 Debug\CommonUtil.obj
+         Debug\GLView.obj
+         Debug\ccType.obj
+         Debug\CCAffineTransform.obj
+         Debug\CCGeometry.obj
+         Debug\CCVertex.obj
+         Debug\Mat4.obj
+         Debug\MathUtil.obj
+         Debug\Quaternion.obj
+         Debug\TransformUtils.obj
+         Debug\Vec2.obj
+         Debug\Vec3.obj
+         Debug\Vec4.obj
+         Debug\GLView.obj
+         Debug\main.obj
+         CreateWindow.vcxproj -> E:\cppproject\OpenGl\Debug\CreateWindow.exe
+     1>Done Building Project "E:\cppproject\OpenGl\CreateWindow\CreateWindow.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:04.15
+Time Elapsed 00:00:00.81

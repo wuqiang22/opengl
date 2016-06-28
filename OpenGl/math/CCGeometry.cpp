@@ -198,9 +198,9 @@ void Rect::merge(const Rect& rect)
     float right2  = rect.getMaxX();
     float bottom2 = rect.getMinY();
     origin.x = std::min(left1, left2);
-    origin.y = std::min(bottom1, bottom2);
-    size.width = std::max(right1, right2) - origin.x;
-    size.height = std::max(top1, top2) - origin.y;
+	origin.y = std::min(bottom1, bottom2);
+	size.width = std::max(right1, right2) - origin.x;
+	size.height = std::max(top1, top2) - origin.y;
 }
 
 Rect Rect::unionWithRect(const Rect & rect) const

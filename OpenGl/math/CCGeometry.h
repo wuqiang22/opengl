@@ -26,10 +26,11 @@ THE SOFTWARE.
 #ifndef __MATH_CCGEOMETRY_H__
 #define __MATH_CCGEOMETRY_H__
 
+#include "CommonMacros.h"
 #include <math.h>
 
 #include "math/CCMath.h"
-#include "CommonMacros.h"
+
 
 
 /**

@@ -3,7 +3,9 @@
 
 #include <stdio.h>
 #include <assert.h>
+#define NOMINMAX
 #include <windows.h>
+#include "CommonUtil.h"
 
 typedef LONG_PTR SSIZE_T;
 
@@ -25,12 +27,14 @@ typedef SSIZE_T ssize_t;
 		if(!cloud){				\
 			if(msg && strlen(msg)>0){		\
 				printf("%s\n",msg);		\
-												}		\
+															}		\
 			assert(cloud)	;		\
-						}		\
+								}		\
 	} while(0)
 
 #define  CCLOG(msg) printf("%s\n",msg)
+
+#define CCLOGERROR(format,...)  util::log(format,##__VA_ARGS__)
 
 #define CC_HOST_IS_BIG_ENDIAN (bool)(*(unsigned short *)"\0\xff" < 0x100) 
 #define CC_SWAP32(i)  ((i & 0x000000ff) << 24 | (i & 0x0000ff00) << 8 | (i & 0x00ff0000) >> 8 | (i & 0xff000000) >> 24)
@@ -50,7 +54,6 @@ typedef unsigned int GLuint;
 #define CC_SAFE_RELEASE(p)          do { if(p) { (p)->release(); } } while(0)
 #define CC_SAFE_RELEASE_NULL(p)     do { if(p) { (p)->release(); (p) = nullptr; } } while(0)
 #define CC_SAFE_RETAIN(p)           do { if(p) { (p)->retain(); } } while(0)
-#define CC_BREAK_IF(cond)           if(cond) break
 
 
 #ifndef MIN

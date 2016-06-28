@@ -90,6 +90,9 @@
     <ClInclude Include="..\math\Vec4.h">
       <Filter>math</Filter>
     </ClInclude>
+    <ClInclude Include="..\base\CommonUtil.h">
+      <Filter>base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -134,21 +137,15 @@
     <ClCompile Include="..\base\ccType.cpp">
       <Filter>base</Filter>
     </ClCompile>
+    <ClCompile Include="..\base\CommonUtil.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\math\Mat4.inl">
       <Filter>math</Filter>
     </None>
     <None Include="..\math\MathUtil.inl">
-      <Filter>math</Filter>
-    </None>
-    <None Include="..\math\MathUtilNeon.inl">
-      <Filter>math</Filter>
-    </None>
-    <None Include="..\math\MathUtilNeon64.inl">
-      <Filter>math</Filter>
-    </None>
-    <None Include="..\math\MathUtilSSE.inl">
       <Filter>math</Filter>
     </None>
     <None Include="..\math\Quaternion.inl">
