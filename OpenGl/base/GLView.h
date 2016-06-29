@@ -2,6 +2,8 @@
 #define _GL_VIEW_H
 #include "GL/glew.h"
 #include "glfw3.h"
+#include "render/GLProgram.h"
+#include "render/Render.h"
 
 #include <stdlib.h>
 #include <string>
@@ -36,11 +38,19 @@ public:
 	void setViewContentAtts(GLViewContentAtts glContextAttrs);
 
 	bool initGlew();
+	void initShaderProgram();
+	void initRender();
+
 	void render();
+
 	~GLView();
 private:
 	GLFWwindow* _mainWindow;
 	GLViewContentAtts _glContextAttrs;
+	
+	GLProgram m_glProgram;
+	GLuint m_shaderProgram;
+	Render m_render;
 };
 
 #endif
