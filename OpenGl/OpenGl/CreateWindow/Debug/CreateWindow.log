@@ -1,0 +1,85 @@
+﻿生成启动时间为 2016/6/29 星期三 22:17:15。
+     1>项目“E:\github\opengl\OpenGl\CreateWindow\CreateWindow.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IE:\github\opengl\OpenGl\glfw3 /IE:\github\opengl\OpenGl\base /IE:\github\opengl\OpenGl\glew\GL /IE:\github\opengl\OpenGl\glew /IE:\github\opengl\OpenGl\math /IE:\github\opengl\OpenGl\ /IE:\github\opengl\OpenGl\parse\tinyxml2 /IE:\github\opengl\OpenGl\parse\rapid /IE:\github\opengl\OpenGl\parse /IE:\github\opengl\OpenGl\unzip /IE:\github\opengl\OpenGl\zlib\include /IE:\github\opengl\OpenGl\image\png\include /IE:\github\opengl\OpenGl\image\jpeg\include /IE:\github\opengl\OpenGl\image\etc /IE:\github\opengl\OpenGl\image\atitc /IE:\github\opengl\OpenGl\image\pvr /IE:\github\opengl\OpenGl\image\s3tc /IE:\github\opengl\OpenGl\image\TGAlib /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\base\CCImage.cpp ..\image\atitc\atitc.cpp ..\image\etc\etc1.cpp ..\image\pvr\pvr.cpp ..\image\s3tc\s3tc.cpp ..\math\Vec2.cpp
+         s3tc.cpp
+         pvr.cpp
+         etc1.cpp
+         atitc.cpp
+         正在生成代码...
+         正在编译...
+         Vec2.cpp
+     1>e:\github\opengl\opengl\math\vec2.cpp(250): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+     1>e:\github\opengl\opengl\math\vec2.cpp(251): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\github\opengl\opengl\math\vec2.cpp(259): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\github\opengl\opengl\math\vec2.cpp(260): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+         CCImage.cpp
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1302): warning C4002: “CCLOG”宏的实参太多
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1308): warning C4002: “CCLOG”宏的实参太多
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1316): warning C4002: “CCLOG”宏的实参太多
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1446): warning C4002: “CCLOG”宏的实参太多
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1454): warning C4002: “CCLOG”宏的实参太多
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1463): warning C4002: “CCLOG”宏的实参太多
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1492): warning C4804: “<”: 在操作中使用类型“bool”不安全
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1584): warning C4804: “<=”: 在操作中使用类型“bool”不安全
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1684): warning C4002: “CCLOG”宏的实参太多
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1698): warning C4002: “CCLOG”宏的实参太多
+     1>e:\github\opengl\opengl\base\ccimage.cpp(1724): warning C4002: “CCLOG”宏的实参太多
+         正在生成代码...
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github\opengl\OpenGl\Debug\CreateWindow.exe" /INCREMENTAL /NOLOGO /LIBPATH:E:\github\opengl\OpenGl\lib glfw3.lib opengl32.lib glew32.lib libzlib.lib libjpeg.lib libpng.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmtd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\github\opengl\OpenGl\Debug\CreateWindow.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\github\opengl\OpenGl\Debug\CreateWindow.lib" /MACHINE:X86 Debug\CCImage.obj
+         Debug\CCValue.obj
+         Debug\CommonUtil.obj
+         Debug\Data.obj
+         Debug\FileUtils.obj
+         Debug\GLView.obj
+         Debug\ccType.obj
+         Debug\ZipUtils.obj
+         Debug\atitc.obj
+         Debug\etc1.obj
+         Debug\pvr.obj
+         Debug\s3tc.obj
+         Debug\TGAlib.obj
+         Debug\CCAffineTransform.obj
+         Debug\CCGeometry.obj
+         Debug\CCVertex.obj
+         Debug\Mat4.obj
+         Debug\MathUtil.obj
+         Debug\Quaternion.obj
+         Debug\TransformUtils.obj
+         Debug\Vec2.obj
+         Debug\Vec3.obj
+         Debug\Vec4.obj
+         Debug\CCRapidMaker.obj
+         Debug\CCRapidParser.obj
+         Debug\CCSAXParser.obj
+         Debug\tinyxml2.obj
+         Debug\CCTexture2D.obj
+         Debug\GLProgram.obj
+         Debug\QuadCommand.obj
+         Debug\Render.obj
+         Debug\ioapi.obj
+         Debug\ioapi_mem.obj
+         Debug\unzip.obj
+         Debug\main.obj
+            正在创建库 E:\github\opengl\OpenGl\Debug\CreateWindow.lib 和对象 E:\github\opengl\OpenGl\Debug\CreateWindow.exp
+     1>LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+     1>glfw3.lib(context.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(context.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(gamma.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(gamma.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(init.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(init.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(input.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(input.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(monitor.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(monitor.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(window.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(window.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(win32_gamma.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(win32_gamma.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(win32_init.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(win32_init.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(win32_joystick.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(win32_joystick.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(win32_monitor.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(win32_monitor.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(win32_time.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(win32_time.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(win32_window.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(win32_window.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>glfw3.lib(wgl_context.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glfw3.lib(wgl_context.obj)”或在“E:\github\opengl\OpenGl\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         CreateWindow.vcxproj -> E:\github\opengl\OpenGl\Debug\CreateWindow.exe
+     1>已完成生成项目“E:\github\opengl\OpenGl\CreateWindow\CreateWindow.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.94
