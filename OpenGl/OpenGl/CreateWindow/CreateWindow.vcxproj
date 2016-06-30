@@ -52,7 +52,8 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)glfw3;$(SolutionDir)base;$(SolutionDir)glew\GL;$(SolutionDir)glew;$(SolutionDir)math;$(SolutionDir);$(SolutionDir)parse\tinyxml2;$(SolutionDir)parse\rapid;$(SolutionDir)parse;$(SolutionDir)unzip;$(SolutionDir)zlib\include;$(SolutionDir)image\png\include;$(SolutionDir)image\jpeg\include;$(SolutionDir)image\etc;$(SolutionDir)image\atitc;$(SolutionDir)image\pvr;$(SolutionDir)image\s3tc;$(SolutionDir)image\TGAlib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)glfw3;$(SolutionDir)base;$(SolutionDir)glew\GL;$(SolutionDir)glew;$(SolutionDir)math;$(SolutionDir);$(SolutionDir)parse\tinyxml2;$(SolutionDir)parse\rapid;$(SolutionDir)parse;$(SolutionDir)unzip;$(SolutionDir)zlib\include;$(SolutionDir)image\png\include;$(SolutionDir)image\jpeg;$(SolutionDir)image\etc;$(SolutionDir)image\atitc;$(SolutionDir)image\pvr;$(SolutionDir)image\s3tc;$(SolutionDir)image\TGAlib</AdditionalIncludeDirectories>
+      <AdditionalOptions>/wd4403 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

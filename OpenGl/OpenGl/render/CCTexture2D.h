@@ -31,7 +31,7 @@ THE SOFTWARE.
 #include <map>
 #include "CommonMacros.h"
 #include "PlatformMacros.h"
-#include "CCImage.h"
+#include "CCGeometry.h"
 
 typedef struct _MipmapInfo MipmapInfo;
 
@@ -40,6 +40,7 @@ typedef struct _MipmapInfo MipmapInfo;
  * @{
  */
 
+class Image;
 //CONSTANTS:
 
 class GLProgram;
@@ -162,8 +163,8 @@ public:
 
 	bool initWithImage(Image * image);
 	bool initWithImage(Image *image, PixelFormat format);
-	bool initWithMipmaps(MipmapInfo* mipmaps, int mipmapsNum, PixelFormat pixelFormat, int pixelsWide, int pixelsHigh)
-
+	bool initWithMipmaps(MipmapInfo* mipmaps, int mipmapsNum, PixelFormat pixelFormat, int pixelsWide, int pixelsHigh);
+	bool initWithData(const void *data, ssize_t dataLen, Texture2D::PixelFormat pixelFormat, int pixelsWide, int pixelsHigh, const Size& contentSize);
 
 protected:
 	static const PixelFormatInfoMap _pixelFormatInfoTables;
@@ -228,7 +229,8 @@ protected:
 	/** texture name */
 	GLuint _name;
 
-	static const PixelFormatInfoMap _pixelFormatInfoTables;
+	Size _contentSize;
+
 };
 
 

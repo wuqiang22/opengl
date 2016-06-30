@@ -4,6 +4,7 @@
 #include "glfw3.h"
 #include "render/GLProgram.h"
 #include "render/Render.h"
+#include "CCImage.h"
 
 #include <stdlib.h>
 #include <string>
@@ -17,7 +18,8 @@ struct GLViewContentAtts{
 	int stencilBits;
 };
 
-
+extern CC_DLL const GLchar * ccPositionTextureColor_noMVP_frag;
+extern CC_DLL const GLchar * ccPositionTextureColor_noMVP_vert;
 
 
 class GLView{
@@ -43,6 +45,8 @@ public:
 
 	void render();
 
+	void initTexture2d();
+
 	~GLView();
 private:
 	GLFWwindow* _mainWindow;
@@ -51,6 +55,9 @@ private:
 	GLProgram m_glProgram;
 	GLuint m_shaderProgram;
 	Render m_render;
+
+	Texture2D texture2d;
+	
 };
 
 #endif

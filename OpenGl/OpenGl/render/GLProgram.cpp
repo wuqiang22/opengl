@@ -1,5 +1,23 @@
 #include "GLProgram.h"
 #include <stdio.h>
+#include <assert.h>
+
+
+// uniform names
+const char* GLProgram::UNIFORM_NAME_AMBIENT_COLOR = "CC_AmbientColor";
+const char* GLProgram::UNIFORM_NAME_P_MATRIX = "CC_PMatrix";
+const char* GLProgram::UNIFORM_NAME_MV_MATRIX = "CC_MVMatrix";
+const char* GLProgram::UNIFORM_NAME_MVP_MATRIX = "CC_MVPMatrix";
+const char* GLProgram::UNIFORM_NAME_NORMAL_MATRIX = "CC_NormalMatrix";
+const char* GLProgram::UNIFORM_NAME_TIME = "CC_Time";
+const char* GLProgram::UNIFORM_NAME_SIN_TIME = "CC_SinTime";
+const char* GLProgram::UNIFORM_NAME_COS_TIME = "CC_CosTime";
+const char* GLProgram::UNIFORM_NAME_RANDOM01 = "CC_Random01";
+const char* GLProgram::UNIFORM_NAME_SAMPLER0 = "CC_Texture0";
+const char* GLProgram::UNIFORM_NAME_SAMPLER1 = "CC_Texture1";
+const char* GLProgram::UNIFORM_NAME_SAMPLER2 = "CC_Texture2";
+const char* GLProgram::UNIFORM_NAME_SAMPLER3 = "CC_Texture3";
+const char* GLProgram::UNIFORM_NAME_ALPHA_TEST_VALUE = "CC_alpha_value";
 
 // Attribute names
 const char* GLProgram::ATTRIBUTE_NAME_COLOR = "a_color";
@@ -88,8 +106,23 @@ void GLProgram::initWithSource(const char* vertexShaderSource, const char*  frag
 	{
 		return;
 	}
+
 	bindPredefinedVertexAttribs();
+
 	link();
+
+	parseAttribute();
+	parseUniforms();
+	updateUniforms();
+
+	texture2d0Pos = glGetUniformLocation(shaderProgram, "CC_Texture0");
+
+	GLenum err = glGetError();
+	if (err != GL_NO_ERROR)
+	{
+		printf("glError: 0x%04X", err);
+		//		CCLOG("cocos2d: Texture2D: Error uploading compressed texture level: %u . glError: 0x%04X", i, err);
+	}
 }
 
 void GLProgram::use()
@@ -145,4 +178,74 @@ void GLProgram::parseAttribute()
 			_vertexAttribs[vertexAttrib.name] = vertexAttrib;
 		}
 	}
+}
+
+void GLProgram::parseUniforms()
+{
+	_useUniforms.clear();
+	GLint _activeUnifroms = 0;
+	glGetProgramiv(shaderProgram, GL_ACTIVE_UNIFORMS,&_activeUnifroms);
+	
+	if (_activeUnifroms > 0)
+	{
+		GLint maxLength = 0;
+		glGetProgramiv(shaderProgram, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxLength);
+		for (int i = 0; i < _activeUnifroms;i++)
+		{
+			GLint size;
+			GLenum type;
+			GLchar* name = (GLchar*)alloca((maxLength+1)*sizeof(GLchar));
+			glGetActiveUniform(shaderProgram, i, maxLength, nullptr, &size, &type, name);
+			name[maxLength] = '\0';
+			if (strcmp(name,"CC_")!=0)
+			{
+				Uniform uniform;
+				GLint location = glGetUniformLocation(shaderProgram, name);
+				uniform.location = location;
+				uniform.type = type;
+				uniform.size = size;
+				uniform.name = std::string(name);
+
+				GLenum __gl_error_code = glGetError();
+				if (__gl_error_code != GL_NO_ERROR)
+				{
+					printf("error: 0x%x", (int)__gl_error_code);
+				}
+				assert(__gl_error_code == GL_NO_ERROR);
+				_useUniforms[uniform.name] = uniform;
+			}
+		}
+	}
+}
+
+void GLProgram::updateUniforms()
+{
+	_builtInUniforms[UNIFORM_AMBIENT_COLOR] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_AMBIENT_COLOR);
+	_builtInUniforms[UNIFORM_P_MATRIX] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_P_MATRIX);
+	_builtInUniforms[UNIFORM_MV_MATRIX] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_MV_MATRIX);
+	_builtInUniforms[UNIFORM_MVP_MATRIX] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_MVP_MATRIX);
+	_builtInUniforms[UNIFORM_NORMAL_MATRIX] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_NORMAL_MATRIX);
+
+	_builtInUniforms[UNIFORM_TIME] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_TIME);
+	_builtInUniforms[UNIFORM_SIN_TIME] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_SIN_TIME);
+	_builtInUniforms[UNIFORM_COS_TIME] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_COS_TIME);
+
+	_builtInUniforms[UNIFORM_RANDOM01] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_RANDOM01);
+
+	_builtInUniforms[UNIFORM_SAMPLER0] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_SAMPLER0);
+	_builtInUniforms[UNIFORM_SAMPLER1] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_SAMPLER1);
+	_builtInUniforms[UNIFORM_SAMPLER2] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_SAMPLER2);
+	_builtInUniforms[UNIFORM_SAMPLER3] = glGetUniformLocation(shaderProgram, UNIFORM_NAME_SAMPLER3);
+
+	_flags.usesP = _builtInUniforms[UNIFORM_P_MATRIX] != -1;
+	_flags.usesMV = _builtInUniforms[UNIFORM_MV_MATRIX] != -1;
+	_flags.usesMVP = _builtInUniforms[UNIFORM_MVP_MATRIX] != -1;
+	_flags.usesNormal = _builtInUniforms[UNIFORM_NORMAL_MATRIX] != -1;
+	_flags.usesTime = (
+		_builtInUniforms[UNIFORM_TIME] != -1 ||
+		_builtInUniforms[UNIFORM_SIN_TIME] != -1 ||
+		_builtInUniforms[UNIFORM_COS_TIME] != -1
+		);
+	_flags.usesRandom = _builtInUniforms[UNIFORM_RANDOM01] != -1;
+
 }

@@ -2,6 +2,16 @@
 
 void Render::init()
 {
+	for (int i = 0; i < VBO_SIZE / 4; i++)
+	{
+		_quadIndices[i * 6 + 0] = (GLushort)(i * 4 + 0);
+		_quadIndices[i * 6 + 1] = (GLushort)(i * 4 + 1);
+		_quadIndices[i * 6 + 2] = (GLushort)(i * 4 + 2);
+		_quadIndices[i * 6 + 3] = (GLushort)(i * 4 + 3);
+		_quadIndices[i * 6 + 4] = (GLushort)(i * 4 + 2);
+		_quadIndices[i * 6 + 5] = (GLushort)(i * 4 + 1);
+	}
+
 	setUpVAo();
 }
 
@@ -34,7 +44,7 @@ void Render::draw()
 		indexToDraw += cmd->getQuadCount() * 6;
 	}
 
-	glDrawElements(GL_TRIANGLES, (GLsizei)indexToDraw, GL_UNSIGNED_SHORT, (GLvoid*)(0));
+	glDrawElements(GL_TRIANGLES, (GLsizei)indexToDraw, GL_UNSIGNED_INT, (GLvoid*)(0));
 
 	glBindVertexArray(0);
 

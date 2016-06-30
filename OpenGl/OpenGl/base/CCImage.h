@@ -31,6 +31,10 @@ THE SOFTWARE.
 #include "CommonMacros.h"
 #include "render/CCTexture2D.h"
 
+#ifndef CC_USE_JPEG
+#define CC_USE_JPEG  1
+#endif // CC_USE_JPEG
+
 
 // premultiply alpha, or the effect will wrong when want to use other pixel format in Texture2D,
 // such as RGB888, RGB5A1
@@ -60,7 +64,6 @@ typedef struct _MipmapInfo
 class  Image 
 {
 public:
-    friend class TextureCache;
     /**
      * @js ctor
      */

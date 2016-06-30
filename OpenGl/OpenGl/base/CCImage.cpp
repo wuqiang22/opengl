@@ -928,9 +928,9 @@ bool Image::initWithPngData(const unsigned char * data, ssize_t dataLen)
         info_ptr = png_create_info_struct(png_ptr);
         CC_BREAK_IF(!info_ptr);
 
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_BADA && CC_TARGET_PLATFORM != CC_PLATFORM_NACL)
+//#if (CC_TARGET_PLATFORM != CC_PLATFORM_BADA && CC_TARGET_PLATFORM != CC_PLATFORM_NACL)
         CC_BREAK_IF(setjmp(png_jmpbuf(png_ptr)));
-#endif
+//#endif
 
         // set the read call back function
         tImageSource imageSource;
@@ -1021,12 +1021,13 @@ bool Image::initWithPngData(const unsigned char * data, ssize_t dataLen)
 
         for (unsigned short i = 0; i < _height; ++i)
         {
+			
             row_pointers[i] = _data + i*rowbytes;
         }
         png_read_image(png_ptr, row_pointers);
-
         png_read_end(png_ptr, nullptr);
-
+		
+		png_uint_32 channel = rowbytes / _width;
         // premultiplied alpha for RGBA8888
         if (color_type == PNG_COLOR_TYPE_RGB_ALPHA)
         {
@@ -2371,7 +2372,14 @@ void Image::premultipliedAlpha()
     {
         unsigned char* p = _data + i * 4;
         fourBytes[i] = CC_RGB_PREMULTIPLY_ALPHA(p[0], p[1], p[2], p[3]);
-    
+		unsigned char ch1 = *fourBytes;
+		unsigned char ch2 = *(fourBytes + 1);
+		unsigned char ch3 = *(fourBytes + 2);
+		unsigned char ch4 = *(fourBytes + 3);
+		if ((int)ch4 != 0 || int(ch3) != 0 || (int)ch2 != 0 || (int)ch1 != 0)
+		{
+			printf("##################\n");
+		}
     }
     _hasPremultipliedAlpha = true;
 }

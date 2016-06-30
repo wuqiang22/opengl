@@ -1,10 +1,11 @@
 #include "GLView.h"
-#include "render/Render.h"
+#include "render/QuadCommand.h"
+
 
 #define STRINGIFY(A)  #A
 
-//#include "render/ccShader_PositionTextureColor_noMVP.frag"
-//#include "render/ccShader_PositionTextureColor_noMVP.vert"
+#include "render/ccShader_PositionTextureColor_noMVP.frag"
+#include "render/ccShader_PositionTextureColor_noMVP.vert"
 
 class GLFWEventHandler
 {
@@ -226,6 +227,7 @@ void main() {\n\
 gl_FragColor = v_fragmentColor;\n\
 }";*/
 
+/*
 const char* ccPositionTextureColor_noMVP_vert =
 "attribute vec4 a_position;\n"
 "attribute vec2 a_texCoord;\n"
@@ -257,7 +259,7 @@ const char* ccPositionTextureColor_noMVP_frag =
 "{\n"
 "gl_FragColor = v_fragmentColor;\n"
 "}\n\0";
-
+*/
 
 
 
@@ -318,7 +320,14 @@ void GLView::initShaderProgram()
 
 	this->m_shaderProgram = shaderProgram;
 	*/
+}
 
+
+void GLView::initTexture2d()
+{
+	Image image;
+	image.initWithImageFile("E://di.png");
+	texture2d.initWithImage(&image);
 }
 
 void GLView::initRender()
@@ -330,7 +339,8 @@ void GLView::render()
 {
 	initRender();
 	initShaderProgram();
-
+	initTexture2d();
+	/*
 	GLfloat vertices[] = {
 		0.5f, 0.5f, 0.0f,1.0f, 0.5f, 0.2f, 1.0f,// Top Right
 		0.5f, -0.5f, 0.0f, 1.0f, 0.5f, 0.2f, 1.0f,// Bottom Right
@@ -363,7 +373,7 @@ void GLView::render()
 	glEnableVertexAttribArray(1);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
+	glBindVertexArray(0);*/
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(_mainWindow))
@@ -389,11 +399,62 @@ void GLView::render()
 
 		this->m_glProgram.use();
 
-		glBindVertexArray(vao);
+
+		//glBindVertexArray(vao);
 		
 		//GL_UNSIGNED_SHORT
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	//	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		
+		QuadCommand command;
+		V3F_C4B_T2F_Quad quads;
+
+		quads.bl.colors = Color4B::WHITE;
+		quads.br.colors = Color4B::WHITE;
+		quads.tl.colors = Color4B::WHITE;
+		quads.tr.colors = Color4B::WHITE;
+
+		float atlasWidth = (float)texture2d.getPixelsWide();
+		float atlasHeight = (float)texture2d.getPixelsHigh();
+
+		Rect rect(0, 0, atlasWidth, atlasHeight);
+		float x1 = 0;
+		float y1 = 0;
+		float x2 = x1 + 1;
+		float y2 = y1 + 1;
+
+		quads.bl.vertices = Vec3(x1, y1, 0);
+		quads.br.vertices = Vec3(x2, y1, 0);
+		quads.tl.vertices = Vec3(x1, y2, 0);
+		quads.tr.vertices = Vec3(x2, y2, 0);
+
+		
+
+		float left, right, top, bottom;
+
+		left = rect.origin.x / atlasWidth;
+		right = (rect.origin.x + rect.size.width) / atlasWidth;
+		top = rect.origin.y / atlasHeight;
+		bottom = (rect.origin.y + rect.size.height) / atlasHeight;
+
+		quads.bl.texCoords.u = left;
+		quads.bl.texCoords.v = bottom;
+		quads.br.texCoords.u = right;
+		quads.br.texCoords.v = bottom;
+		quads.tl.texCoords.u = left;
+		quads.tl.texCoords.v = top;
+		quads.tr.texCoords.u = right;
+		quads.tr.texCoords.v = top;
+
+		command.init(&quads, 1);
+		m_render.putQuadCmd(&command);
+
+		glActiveTexture(GL_TEXTURE0 + 0);
+		glBindTexture(GL_TEXTURE_2D, texture2d.getName());
+
+		glUniform1i(m_glProgram.texture2d0Pos, 0);
+
+		m_render.draw();
+
 		
 		glBindVertexArray(0);
 
