@@ -161,10 +161,11 @@ bool GLView::createWindow(std::string windowname)
 	glfwWindowHint(GLFW_DEPTH_BITS, _glContextAttrs.depthBits);
 	glfwWindowHint(GLFW_STENCIL_BITS, _glContextAttrs.stencilBits);
 	
-	_mainWindow = glfwCreateWindow(960, 640, windowname.c_str(), nullptr, nullptr);
+	_frameSize.setSize(960, 640);
+	_mainWindow = glfwCreateWindow(_frameSize.width, _frameSize.height, windowname.c_str(), nullptr, nullptr);
 	glfwMakeContextCurrent(_mainWindow);  //在我们使用 GL 命令之前我们需要将创建的窗口设置为当前窗口
 
-	glViewport(0, 0, 480, 320);
+	//glViewport(0, 0, 480, 320);
 	
 	glfwSetMouseButtonCallback(_mainWindow, GLFWEventHandler::onGLFWMouseCallBack);
 	glfwSetCursorPosCallback(_mainWindow, GLFWEventHandler::onGLFWMouseMoveCallBack);
@@ -326,7 +327,7 @@ void GLView::initShaderProgram()
 void GLView::initTexture2d()
 {
 	Image image;
-	image.initWithImageFile("E://di.png");
+	image.initWithImageFile("E://3.jpg");
 	texture2d.initWithImage(&image);
 }
 
@@ -417,9 +418,9 @@ void GLView::render()
 		float atlasHeight = (float)texture2d.getPixelsHigh();
 
 		Rect rect(0, 0, atlasWidth, atlasHeight);
-		float x1 = 0;
-		float y1 = 0;
-		float x2 = x1 + 1;
+		float x1 = -0.2;
+		float y1 = -1;
+		float x2 = x1 + 0.847;
 		float y2 = y1 + 1;
 
 		quads.bl.vertices = Vec3(x1, y1, 0);
@@ -475,6 +476,16 @@ bool GLView::initGlew()
 		return false;
 	}
 	return true;
+}
+
+void GLView::setDesignResolution(size_t width, size_t height)
+{
+	_designResolutionSize.setSize(width, height);
+}
+
+Size GLView::getDesignResolution()
+{
+	return _designResolutionSize;
 }
 
 GLView::~GLView()

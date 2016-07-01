@@ -39,6 +39,10 @@ public:
 	bool createWindow(std::string  windowname);
 	void setViewContentAtts(GLViewContentAtts glContextAttrs);
 
+	void setDesignResolution(size_t width, size_t height);
+
+	Size getDesignResolution();
+
 	bool initGlew();
 	void initShaderProgram();
 	void initRender();
@@ -58,6 +62,7 @@ private:
 
 	Texture2D texture2d;
 	
+	Size _designResolutionSize, _frameSize;
 };
 
 #endif

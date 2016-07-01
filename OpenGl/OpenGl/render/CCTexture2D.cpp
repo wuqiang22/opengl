@@ -2,6 +2,7 @@
 #include "glew.h"
 #include "CCGeometry.h"
 #include "CCImage.h"
+#include "ccTypes.h"
 
 
 typedef Texture2D::PixelFormatInfoMap::value_type PixelFormatInfoMapValue;
@@ -724,9 +725,11 @@ bool Texture2D::initWithMipmaps(MipmapInfo* mipmaps, int mipmapsNum, PixelFormat
 	const PixelFormatInfo& info = _pixelFormatInfoTables.at(pixelFormat);
 
 	//Set the row align only when mipmapsNum == 1 and the data is uncompressed
+
 	if (mipmapsNum == 1 && !info.compressed)
 	{
 		unsigned int bytesPerRow = pixelsWide * info.bpp / 8;
+
 
 		if (bytesPerRow % 8 == 0)
 		{
@@ -763,16 +766,18 @@ bool Texture2D::initWithMipmaps(MipmapInfo* mipmaps, int mipmapsNum, PixelFormat
 
 	if (mipmapsNum == 1)
 	{
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);//纹理缩小用线性过滤
 	}
 	else
 	{
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
 	}
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,  GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);//纹理放大用线性过滤
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+
 
 #if CC_ENABLE_CACHE_TEXTURE_DATA
 	if (_antialiasEnabled)
