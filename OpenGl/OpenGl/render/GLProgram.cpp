@@ -1,6 +1,8 @@
 #include "GLProgram.h"
 #include <stdio.h>
 #include <assert.h>
+#include "CCGeometry.h"
+#include "Director.h"
 
 
 // uniform names
@@ -128,6 +130,7 @@ void GLProgram::initWithSource(const char* vertexShaderSource, const char*  frag
 void GLProgram::use()
 {
 	glUseProgram(this->shaderProgram);
+	setUniformsForBuiltins();
 }
 
 void GLProgram::bindPredefinedVertexAttribs()
@@ -248,4 +251,26 @@ void GLProgram::updateUniforms()
 		);
 	_flags.usesRandom = _builtInUniforms[UNIFORM_RANDOM01] != -1;
 
+}
+
+void GLProgram::setUniformsForBuiltins()
+{
+	Mat4 projectionMatrix, modalViewMatrix;
+	projectionMatrix = Director::getInstance()->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+	modalViewMatrix = Director::getInstance()->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+	if (_flags.usesP)
+	{
+		glUniformMatrix4fv((GLint)_builtInUniforms[UNIFORM_P_MATRIX], (GLsizei)1, GL_FALSE, projectionMatrix.m);
+	}
+
+	if (_flags.usesMV)
+	{
+		glUniformMatrix4fv((GLint)_builtInUniforms[UNIFORM_MV_MATRIX], (GLsizei)1, GL_FALSE, modalViewMatrix.m);
+	}
+
+	if (_flags.usesMVP)
+	{
+		Mat4 mvpMatrix = projectionMatrix * modalViewMatrix;
+		glUniformMatrix4fv((GLint)_builtInUniforms[UNIFORM_MVP_MATRIX], (GLsizei)1, GL_FALSE, mvpMatrix.m);
+	}
 }

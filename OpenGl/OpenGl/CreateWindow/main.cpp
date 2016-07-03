@@ -1,10 +1,12 @@
 #include <stdlib.h>
+#include "Director.h"
 #include "GLView.h"
-#include "glfw3.h"
 
 int main()
 {
 	
+	Director::getInstance()->setWinSize(Size(960, 640));
+	Director::getInstance()->setProjection();
 	GLView* glView = new GLView();
 	if (glView->createWindow("OpenGL Lesson One"))
 	{

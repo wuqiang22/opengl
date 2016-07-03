@@ -98,6 +98,8 @@ public:
 	void parseAttribute();
 	void parseUniforms();
 	void updateUniforms();
+
+	void setUniformsForBuiltins();
 public:
 	GLuint shaderProgram,texture2d0Pos;
 

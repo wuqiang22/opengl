@@ -38,13 +38,27 @@ void Render::draw()
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _quadbuffersVBO[1]);
 
-	size_t indexToDraw = 0;
+	size_t startIndex=0,indexToDraw = 0;
+
 	for (auto cmd : quadCmds)
 	{
+		if (indexToDraw >0)
+		{
+			glDrawElements(GL_TRIANGLES, (GLsizei)indexToDraw, GL_UNSIGNED_INT, (GLvoid*)(startIndex*sizeof(_quadIndices[0])));
+			startIndex += indexToDraw;
+			indexToDraw = 0;
+		}
+		cmd->useMaterial();
 		indexToDraw += cmd->getQuadCount() * 6;
+		
 	}
 
-	glDrawElements(GL_TRIANGLES, (GLsizei)indexToDraw, GL_UNSIGNED_INT, (GLvoid*)(0));
+	if (indexToDraw > 0)
+	{
+		glDrawElements(GL_TRIANGLES, (GLsizei)indexToDraw, GL_UNSIGNED_INT, (GLvoid*)(startIndex*sizeof(_quadIndices[0])));
+	}
+
+	
 
 	glBindVertexArray(0);
 
