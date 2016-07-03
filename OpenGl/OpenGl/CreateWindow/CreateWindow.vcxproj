@@ -59,7 +59,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32.lib;libzlib.lib;libjpeg.lib;libpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;libzlib.lib;libjpeg.lib;libpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -93,10 +93,11 @@
     <ClInclude Include="..\base\CommonMacros.h" />
     <ClInclude Include="..\base\CommonUtil.h" />
     <ClInclude Include="..\base\Data.h" />
+    <ClInclude Include="..\base\Director.h" />
     <ClInclude Include="..\base\FileUtils.h" />
     <ClInclude Include="..\base\GLView.h" />
     <ClInclude Include="..\base\PlatformMacros.h" />
-    <ClInclude Include="..\base\Types.h" />
+    <ClInclude Include="..\base\Sprite.h" />
     <ClInclude Include="..\base\ZipUtils.h" />
     <ClInclude Include="..\glew\GL\glew.h" />
     <ClInclude Include="..\glew\GL\glxew.h" />
@@ -150,9 +151,11 @@
     <ClCompile Include="..\base\CCValue.cpp" />
     <ClCompile Include="..\base\CommonUtil.cpp" />
     <ClCompile Include="..\base\Data.cpp" />
+    <ClCompile Include="..\base\Director.cpp" />
     <ClCompile Include="..\base\FileUtils.cpp" />
     <ClCompile Include="..\base\GLView.cpp" />
     <ClCompile Include="..\base\ccType.cpp" />
+    <ClCompile Include="..\base\Sprite.cpp" />
     <ClCompile Include="..\base\ZipUtils.cpp" />
     <ClCompile Include="..\image\atitc\atitc.cpp" />
     <ClCompile Include="..\image\etc\etc1.cpp" />

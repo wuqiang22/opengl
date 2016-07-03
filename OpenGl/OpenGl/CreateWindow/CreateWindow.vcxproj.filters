@@ -129,9 +129,6 @@
     <ClInclude Include="..\base\FileUtils.h">
       <Filter>base</Filter>
     </ClInclude>
-    <ClInclude Include="..\base\Types.h">
-      <Filter>base</Filter>
-    </ClInclude>
     <ClInclude Include="..\base\ZipUtils.h">
       <Filter>base</Filter>
     </ClInclude>
@@ -212,6 +209,12 @@
     </ClInclude>
     <ClInclude Include="..\image\TGAlib\TGAlib.h">
       <Filter>image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\Sprite.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\Director.h">
+      <Filter>base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +322,12 @@
     </ClCompile>
     <ClCompile Include="..\image\TGAlib\TGAlib.cpp">
       <Filter>image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\base\Sprite.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\base\Director.cpp">
+      <Filter>base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
