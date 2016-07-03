@@ -2376,10 +2376,6 @@ void Image::premultipliedAlpha()
 		unsigned char ch2 = *(fourBytes + 1);
 		unsigned char ch3 = *(fourBytes + 2);
 		unsigned char ch4 = *(fourBytes + 3);
-		if ((int)ch4 != 0 || int(ch3) != 0 || (int)ch2 != 0 || (int)ch1 != 0)
-		{
-			printf("##################\n");
-		}
     }
     _hasPremultipliedAlpha = true;
 }

@@ -34,6 +34,8 @@ typedef SSIZE_T ssize_t;
 
 #define  CCLOG(msg) printf("%s\n",msg)
 
+#define  CCLOGMSG(format,...) util::log(format,##__VA_ARGS__)
+
 #define CCLOGERROR(format,...)  util::log(format,##__VA_ARGS__)
 
 #define CC_HOST_IS_BIG_ENDIAN (bool)(*(unsigned short *)"\0\xff" < 0x100) 

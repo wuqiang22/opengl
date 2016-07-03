@@ -1,5 +1,6 @@
 #ifndef _GL_VIEW_H
 #define _GL_VIEW_H
+
 #include "GL/glew.h"
 #include "glfw3.h"
 #include "render/GLProgram.h"
@@ -8,6 +9,8 @@
 
 #include <stdlib.h>
 #include <string>
+#include <vector>
+#include "Sprite.h"
 
 struct GLViewContentAtts{
 	int redBits;
@@ -18,8 +21,6 @@ struct GLViewContentAtts{
 	int stencilBits;
 };
 
-extern CC_DLL const GLchar * ccPositionTextureColor_noMVP_frag;
-extern CC_DLL const GLchar * ccPositionTextureColor_noMVP_vert;
 
 
 class GLView{
@@ -57,12 +58,13 @@ private:
 	GLViewContentAtts _glContextAttrs;
 	
 	GLProgram m_glProgram;
-	GLuint m_shaderProgram;
 	Render m_render;
 
 	Texture2D texture2d;
 	
-	Size _designResolutionSize, _frameSize;
+	Size _designResolutionSize;
+
+	std::vector<Sprite*> _sprites;
 };
 
 #endif

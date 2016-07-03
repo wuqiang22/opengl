@@ -2,17 +2,42 @@
 #define  __Director_H_
 
 #include "GLView.h"
+#include "CCGeometry.h"
+#include <stack>
+
+enum class MATRIX_STACK_TYPE
+{
+	MATRIX_STACK_MODELVIEW,
+	MATRIX_STACK_PROJECTION
+};
 
 class Director{
 public:
 
-	Director* getInstance();
+	static Director* _defaultDirector;
+	static Director* getInstance();
 
 	GLView* getGLView();
 
 	void drawScene();
+
+	bool init();
+	void initStack();
+	
+	Size getWinSize();
+
+	void setWinSize(Size& winSize);
+
+	void setProjection();
+
+	const Mat4& getMatrix(MATRIX_STACK_TYPE type);
+	void multiplyMatrix(MATRIX_STACK_TYPE type, Mat4& mat4);
+private:
 private:
 	GLView* _glView;
+	Size _size;
+	std::stack<Mat4> _modalViewMatrixStack;
+	std::stack<Mat4> _projectionMatrixStack;
 };
 
 #endif
