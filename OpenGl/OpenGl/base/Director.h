@@ -32,6 +32,11 @@ public:
 
 	const Mat4& getMatrix(MATRIX_STACK_TYPE type);
 	void multiplyMatrix(MATRIX_STACK_TYPE type, Mat4& mat4);
+
+	void loadMatrix(MATRIX_STACK_TYPE type, const Mat4& mat4);
+	void popMatrix(MATRIX_STACK_TYPE type);
+	void pushMatrix(MATRIX_STACK_TYPE type);
+
 private:
 private:
 	GLView* _glView;

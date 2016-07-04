@@ -9,6 +9,8 @@
 class Sprite
 {
 public:
+	Sprite();
+
 	static Sprite* create();
 	static Sprite* createWithFileName(std::string filename);
 	virtual bool init();
@@ -22,6 +24,15 @@ public:
 	inline void setName(std::string name){ _name = name; }
 	inline std::string getName(){ return _name; }
 
+	void setRotation(float rotationX, float rotationY);
+	void setRotationX(float rotationX);
+	void setRotationY(float rotationY);
+
+	void setScale(float scale);
+	void setScaleX(float scaleX);
+	void setScaleY(float scaleY);
+
+	void updateTransform();
 private:
 	void initShaderProgram();
 
@@ -30,7 +41,12 @@ private:
 	Texture2D texture2d;
 	QuadCommand _quadCommand;
 	Vec2 _position;
+	float _rotationX, _rotationY;
+	float _scaleX, _scaleY;
 	std::string _name;
+
+	Mat4 _transform;
+	Quaternion _rotationQuat;
 };
 
 #endif

@@ -5,6 +5,7 @@
 #include "glfw3.h"
 #include <string>
 #include <unordered_map>
+#include "Mat4.h"
 
 struct VertexAttrib
 {
@@ -92,7 +93,7 @@ public:
 	void initWithSource(const char* vertexShaderSource, const char* fragementShaderSource);
 	bool compileShader(GLuint* shader, GLenum type, const GLchar* shaderSource);
 	void link();
-	void use();
+	void apply(const Mat4& modelView);
 	void bindPredefinedVertexAttribs();
 
 	void parseAttribute();
@@ -100,6 +101,7 @@ public:
 	void updateUniforms();
 
 	void setUniformsForBuiltins();
+	void setUniformsForBuiltins(const Mat4& modelView);
 public:
 	GLuint shaderProgram,texture2d0Pos;
 

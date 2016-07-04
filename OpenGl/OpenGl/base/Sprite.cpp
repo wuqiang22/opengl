@@ -10,6 +10,15 @@
 #include "FileUtils.h"
 #include "Director.h"
 
+Sprite::Sprite():
+_rotationX(0),
+_rotationY(0),
+_scaleX(1.0f),
+_scaleY(1.0f)
+{
+
+}
+
 Sprite* Sprite::createWithFileName(std::string filename)
 {
 	Sprite* sprite = new (std::nothrow) Sprite();
@@ -58,9 +67,65 @@ void Sprite::initShaderProgram()
 	this->m_glProgram.initWithSource(ccPositionTextureColor_noMVP_vert, ccPositionTextureColor_noMVP_frag);
 }
 
+void Sprite::setRotation(float rotationX, float rotationY)
+{
+	_rotationX = rotationX;
+	_rotationY = rotationY;
+}
+
+void Sprite::setRotationX(float rotationX)
+{
+	_rotationX = rotationX; 
+}
+
+void Sprite::setRotationY(float rotationY)
+{
+	_rotationY = rotationY;
+}
+
+void Sprite::setScale(float scale)
+{
+	_scaleX = _scaleY = scale; 
+}
+
+void Sprite::setScaleX(float scaleX)
+{
+	_scaleX = scaleX;
+}
+
+void Sprite::setScaleY(float scaleY)
+{
+	_scaleY = scaleY;
+}
+
+void Sprite::updateTransform()
+{
+
+	float halfRadx = CC_DEGREES_TO_RADIANS(_rotationX / 2.f), halfRady = CC_DEGREES_TO_RADIANS(_rotationY / 2.f), halfRadz = 0;
+	float coshalfRadx = cosf(halfRadx), sinhalfRadx = sinf(halfRadx), coshalfRady = cosf(halfRady), sinhalfRady = sinf(halfRady), coshalfRadz = cosf(halfRadz), sinhalfRadz = sinf(halfRadz);
+	_rotationQuat.x = sinhalfRadx * coshalfRady * coshalfRadz - coshalfRadx * sinhalfRady * sinhalfRadz;
+	_rotationQuat.y = coshalfRadx * sinhalfRady * coshalfRadz + sinhalfRadx * coshalfRady * sinhalfRadz;
+	_rotationQuat.z = coshalfRadx * coshalfRady * sinhalfRadz - sinhalfRadx * sinhalfRady * coshalfRadz;
+	_rotationQuat.w = coshalfRadx * coshalfRady * coshalfRadz + sinhalfRadx * sinhalfRady * sinhalfRadz;
+
+
+	Mat4::createRotation(_rotationQuat, &_transform);
+
+	if (_scaleX != 1.f)
+	{
+		_transform.m[0] *= _scaleX, _transform.m[1] *= _scaleX, _transform.m[2] *= _scaleX;
+	}
+	if (_scaleY != 1.f)
+	{
+		_transform.m[4] *= _scaleY, _transform.m[5] *= _scaleY, _transform.m[6] *= _scaleY;
+	}
+
+}
+
 
 void Sprite::visit(Render* render)
 {
+	updateTransform();
 	V3F_C4B_T2F_Quad quads;
 
 	quads.bl.colors = Color4B::WHITE;
@@ -92,8 +157,6 @@ void Sprite::visit(Render* render)
 	quads.tl.vertices = Vec3(x1, y2, z);
 	quads.tr.vertices = Vec3(x2, y2, z);
 
-
-
 	float left, right, top, bottom;
 
 	left = rect.origin.x / atlasWidth;
@@ -110,7 +173,7 @@ void Sprite::visit(Render* render)
 	quads.tr.texCoords.u = right;
 	quads.tr.texCoords.v = top;
 
-	_quadCommand.init(&quads, 1, texture2d, m_glProgram);
+	_quadCommand.init(&quads, 1, texture2d, m_glProgram, _transform);
 	render->putQuadCmd(&_quadCommand);
 }
 

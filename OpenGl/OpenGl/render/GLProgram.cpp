@@ -127,10 +127,10 @@ void GLProgram::initWithSource(const char* vertexShaderSource, const char*  frag
 	}
 }
 
-void GLProgram::use()
+void GLProgram::apply(const Mat4&  modelView)
 {
 	glUseProgram(this->shaderProgram);
-	setUniformsForBuiltins();
+	setUniformsForBuiltins(modelView);
 }
 
 void GLProgram::bindPredefinedVertexAttribs()
@@ -253,11 +253,18 @@ void GLProgram::updateUniforms()
 
 }
 
+
 void GLProgram::setUniformsForBuiltins()
+{
+	Mat4 modelView = Director::getInstance()->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+	setUniformsForBuiltins(modelView);
+}
+
+void GLProgram::setUniformsForBuiltins(const Mat4& modelView)
 {
 	Mat4 projectionMatrix, modalViewMatrix;
 	projectionMatrix = Director::getInstance()->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
-	modalViewMatrix = Director::getInstance()->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+	modalViewMatrix = modelView;
 	if (_flags.usesP)
 	{
 		glUniformMatrix4fv((GLint)_builtInUniforms[UNIFORM_P_MATRIX], (GLsizei)1, GL_FALSE, projectionMatrix.m);

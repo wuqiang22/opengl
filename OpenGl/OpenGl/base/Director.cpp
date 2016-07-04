@@ -92,3 +92,43 @@ void Director::multiplyMatrix(MATRIX_STACK_TYPE type, Mat4& mat4)
 
 	CCLOG("invalid type");
 }
+
+void Director::popMatrix(MATRIX_STACK_TYPE type)
+{
+	if (type == MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW)
+	{
+		_modalViewMatrixStack.pop();
+	}
+	else if (type == MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION)
+	{
+		_projectionMatrixStack.pop();
+	}
+
+	CCLOG("invalid type");
+}
+
+void Director::loadMatrix(MATRIX_STACK_TYPE type, const Mat4& mat4)
+{
+	if (type == MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW)
+	{
+		_modalViewMatrixStack.top() = mat4;
+	}
+	else if (type == MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION)
+	{
+		_projectionMatrixStack.top() = mat4;
+	}
+	CCLOG("invalid type");
+}
+
+void Director::pushMatrix(MATRIX_STACK_TYPE type)
+{
+	if (type == MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW)
+	{
+		_modalViewMatrixStack.push(_modalViewMatrixStack.top());
+	}
+	else if (type == MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION)
+	{
+		_projectionMatrixStack.push(_projectionMatrixStack.top());
+	}
+	CCLOG("invalid type");
+}
