@@ -47,6 +47,8 @@ private:
 
 	Mat4 _transform;
 	Quaternion _rotationQuat;
+
+	BlendFunc        _blendFunc;          
 };
 
 #endif

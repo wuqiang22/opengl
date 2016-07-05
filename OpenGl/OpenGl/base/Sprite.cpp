@@ -54,6 +54,7 @@ bool Sprite::initWithFileName(std::string filename)
 		return false;
 	}
 
+	_blendFunc = BlendFunc::ALPHA_PREMULTIPLIED;
 	Image image;
 	image.initWithImageFile(filename);
 	texture2d.initWithImage(&image);
@@ -173,7 +174,7 @@ void Sprite::visit(Render* render)
 	quads.tr.texCoords.u = right;
 	quads.tr.texCoords.v = top;
 
-	_quadCommand.init(&quads, 1, texture2d, m_glProgram, _transform);
+	_quadCommand.init(&quads, 1, texture2d, m_glProgram, _transform, _blendFunc);
 	render->putQuadCmd(&_quadCommand);
 }
 

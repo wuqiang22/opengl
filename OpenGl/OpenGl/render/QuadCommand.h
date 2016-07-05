@@ -11,7 +11,7 @@ public:
 	QuadCommand();
 	~QuadCommand();
 
-	void init(V3F_C4B_T2F_Quad* quads, size_t quadsCount,Texture2D texture2d,GLProgram _glProgram,const Mat4& _mv);
+	void init(V3F_C4B_T2F_Quad* quads, size_t quadsCount,Texture2D texture2d,GLProgram _glProgram,const Mat4& _mv,BlendFunc _blendFunc);
 
 	inline V3F_C4B_T2F_Quad* getQuads() const { return _quads; }
 	inline ssize_t getQuadCount() const { return _quadsCount; }
@@ -25,6 +25,8 @@ private:
 
 	Texture2D _texture2d;
 	Mat4 mv;
+
+	BlendFunc blendFunc;
 };
 
 #endif

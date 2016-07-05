@@ -187,11 +187,18 @@ void GLView::initShaderProgram()
 
 void GLView::initTexture2d()
 {
-	Sprite* sprite1 = Sprite::createWithFileName("E://4.png");
+	
+
+	Sprite* sprite1 = Sprite::createWithFileName("E://2.jpg");
 	_sprites.push_back(sprite1);
 	sprite1->setName("sprite1");
 	sprite1->setPosition(0, 0);
 	sprite1->setScale(2);
+
+	Sprite* sprite2 = Sprite::createWithFileName("E://3.png");
+	_sprites.push_back(sprite2);
+	sprite2->setPosition(250, 200);
+
 }
 
 void GLView::initRender()
