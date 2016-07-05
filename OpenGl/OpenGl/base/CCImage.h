@@ -154,6 +154,9 @@ public:
      */
     static void setPVRImagesHavePremultipliedAlpha(bool haveAlphaPremultiplied);
 
+	bool saveImageToPNG(const std::string& filePath, bool isToRGB = true);
+	bool saveImageToJPG(const std::string& filePath);
+
 protected:
     bool initWithJpgData(const unsigned char *  data, ssize_t dataLen);
     bool initWithPngData(const unsigned char * data, ssize_t dataLen);
@@ -168,8 +171,7 @@ protected:
     typedef struct sImageTGA tImageTGA;
     bool initWithTGAData(tImageTGA* tgaData);
 
-    bool saveImageToPNG(const std::string& filePath, bool isToRGB = true);
-    bool saveImageToJPG(const std::string& filePath);
+   
     
     void premultipliedAlpha();
     

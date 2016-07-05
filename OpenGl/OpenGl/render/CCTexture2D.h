@@ -158,6 +158,8 @@ public:
 	/** Gets the height of the texture in pixels */
 	int getPixelsHigh() const;
 
+	Size getContentSizeInPixel();
+
 	/** Gets the texture name */
 	GLuint getName() const;
 

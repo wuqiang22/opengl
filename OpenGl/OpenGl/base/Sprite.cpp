@@ -41,6 +41,13 @@ Sprite* Sprite::create()
 	return sprite;
 }
 
+Sprite* Sprite::createWithTexture(Texture2D texture)
+{
+	Sprite* sprite = new (std::nothrow) Sprite();
+	sprite->texture2d = texture;
+	return sprite;
+}
+
 bool Sprite::init()
 {
 	return true;
@@ -62,6 +69,8 @@ bool Sprite::initWithFileName(std::string filename)
 	initShaderProgram();
 	return true;
 }
+
+
 
 void Sprite::initShaderProgram()
 {

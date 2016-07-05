@@ -4,6 +4,7 @@
 #include "GLView.h"
 #include "CCGeometry.h"
 #include <stack>
+#include "render/Render.h"
 
 enum class MATRIX_STACK_TYPE
 {
@@ -37,12 +38,16 @@ public:
 	void popMatrix(MATRIX_STACK_TYPE type);
 	void pushMatrix(MATRIX_STACK_TYPE type);
 
+	void initRender();
+	inline Render getRenderer(){ return *render; }
 private:
 private:
 	GLView* _glView;
 	Size _size;
 	std::stack<Mat4> _modalViewMatrixStack;
 	std::stack<Mat4> _projectionMatrixStack;
+
+	Render* render;
 };
 
 #endif

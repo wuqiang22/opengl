@@ -46,7 +46,7 @@ public:
 
 	bool initGlew();
 	void initShaderProgram();
-	void initRender();
+	
 
 	void render();
 

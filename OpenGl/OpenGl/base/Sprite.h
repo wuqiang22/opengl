@@ -13,6 +13,7 @@ public:
 
 	static Sprite* create();
 	static Sprite* createWithFileName(std::string filename);
+	static Sprite* createWithTexture(Texture2D texture);
 	virtual bool init();
 	virtual bool initWithFileName(std::string filename);
 
@@ -49,6 +50,7 @@ private:
 	Quaternion _rotationQuat;
 
 	BlendFunc        _blendFunc;          
+
 };
 
 #endif

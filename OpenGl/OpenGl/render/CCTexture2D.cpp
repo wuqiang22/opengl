@@ -834,3 +834,8 @@ bool Texture2D::initWithMipmaps(MipmapInfo* mipmaps, int mipmapsNum, PixelFormat
 	_contentSize = Size((float)pixelsWide, (float)pixelsHigh);
 	return true;
 }
+
+Size Texture2D::getContentSizeInPixel()
+{
+	return _contentSize;
+}

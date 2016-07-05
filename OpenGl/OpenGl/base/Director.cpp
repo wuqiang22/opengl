@@ -16,9 +16,15 @@ Director*  Director::getInstance()
 	return _defaultDirector;
 }
 
+void Director::initRender()
+{
+	render->init();
+}
+
 bool Director::init()
 {
 	initStack();
+	initRender();
 	return true;
 }
 
