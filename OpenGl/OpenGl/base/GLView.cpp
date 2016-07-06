@@ -1,6 +1,7 @@
 #include "GLView.h"
 #include "render/QuadCommand.h"
 #include "Director.h"
+#include "render/RenderTexture.h"
 
 
 class GLFWEventHandler
@@ -207,23 +208,45 @@ void GLView::render()
 	m_render = Director::getInstance()->getRenderer();
 	initTexture2d();
 
+	bool saveImage = true;
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(_mainWindow))
 	{
-
-
 		glClearColor(0.2, 0.2, 0.2, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		for (Sprite* sprite : _sprites)
+		if (saveImage)
 		{
-			sprite->visit(&m_render);
-		}
+			Size size = Director::getInstance()->getWinSize();
+			RenderTexture* renderTexure = RenderTexture::create(size.width/2, size.height/2);
+			renderTexure->begin();
+			renderTexure->end();
 
-		m_render.draw();
+			renderTexure->onBegin();
+			for (Sprite* sprite : _sprites)
+			{
+				sprite->visit(&m_render);
+			}
+			m_render.draw();
+			renderTexure->onEnd();
+			renderTexure->saveToFile("1.png");
+			saveImage = false;
+
+			CC_SAFE_DELETE(renderTexure);
+		}
+		else{
+			for (Sprite* sprite : _sprites)
+			{
+				sprite->visit(&m_render);
+			}
+
+
+			m_render.draw();
+
+			
+		}
 		
-		glBindVertexArray(0);
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(_mainWindow);

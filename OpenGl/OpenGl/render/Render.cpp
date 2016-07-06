@@ -11,7 +11,7 @@ void Render::init()
 		_quadIndices[i * 6 + 4] = (GLushort)(i * 4 + 2);
 		_quadIndices[i * 6 + 5] = (GLushort)(i * 4 + 1);
 	}
-
+	_numberQuads = 0;
 	setUpVAo();
 }
 

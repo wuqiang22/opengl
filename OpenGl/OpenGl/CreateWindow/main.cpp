@@ -10,6 +10,7 @@ int main()
 	GLView* glView = new GLView();
 	if (glView->createWindow("OpenGL Lesson One"))
 	{
+		Director::getInstance()->initRender();
 		glView->render();
 	}
 

@@ -39,7 +39,7 @@ public:
 	void pushMatrix(MATRIX_STACK_TYPE type);
 
 	void initRender();
-	inline Render getRenderer(){ return *render; }
+	inline const Render& getRenderer(){ return *render; }
 private:
 private:
 	GLView* _glView;

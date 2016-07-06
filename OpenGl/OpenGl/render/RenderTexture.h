@@ -16,6 +16,8 @@ public:
 
 	RenderTexture();
 
+	~RenderTexture();
+
 	bool init(int width, int height);
 	void begin();
 

@@ -216,6 +216,15 @@
     <ClInclude Include="..\base\Director.h">
       <Filter>base</Filter>
     </ClInclude>
+    <ClInclude Include="..\render\ccGLStateManager.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\render\CustomCommand.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\render\RenderTexture.h">
+      <Filter>render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -328,6 +337,15 @@
     </ClCompile>
     <ClCompile Include="..\base\Director.cpp">
       <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\render\ccGLStateManager.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\render\CustomCommand.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\render\RenderTexture.cpp">
+      <Filter>render</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

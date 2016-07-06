@@ -66,6 +66,24 @@ bool RenderTexture::init(int width, int height)
 		// associate texture with FBO
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture->getName(), 0);
 
+		/*
+		GLuint depthStencilFormat = GL_DEPTH24_STENCIL8;
+		if (depthStencilFormat != 0)
+		{
+			//create and attach depth buffer
+			glGenRenderbuffers(1, &_depthRenderBufffer);
+			glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBufffer);
+			glRenderbufferStorage(GL_RENDERBUFFER, depthStencilFormat, (GLsizei)powW, (GLsizei)powH);
+			glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBufffer);
+
+
+			// if depth format is the one with stencil part, bind same render buffer as stencil attachment
+			if (depthStencilFormat == GL_DEPTH24_STENCIL8)
+			{
+				glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBufffer);
+			}
+		}*/
+
 		sprite = Sprite::createWithTexture(*_texture);
 
 		glBindRenderbuffer(GL_RENDERBUFFER, oldRBO);
@@ -101,9 +119,9 @@ void RenderTexture::onBegin()
 		float widthRatio = size.width / texSize.width;
 		float heightRatio = size.height / texSize.height;
 
-		Mat4 orthoMatrix;
-		Mat4::createOrthographicOffCenter((float)-1.0 / widthRatio, (float)1.0 / widthRatio, (float)-1.0 / heightRatio, (float)1.0 / heightRatio, -1, 1, &orthoMatrix);
-		director->multiplyMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION, orthoMatrix);
+	//	Mat4 orthoMatrix;
+	//	Mat4::createOrthographicOffCenter((float)-1.0 / widthRatio, (float)1.0 / widthRatio, (float)-1.0 / heightRatio, (float)1.0 / heightRatio, -1, 1, &orthoMatrix);
+	//	director->multiplyMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION, orthoMatrix);
 	}
 	else
 	{
@@ -145,36 +163,19 @@ void RenderTexture::begin()
 {
 	Director* director = Director::getInstance();
 
-	director->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+//	director->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
 	_projectionMatrix = director->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
 
-	director->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+//	director->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
 	_transformMatrix = director->getMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
-
-	if (!_keepMatrix)
-	{
-	//	director->setProjection(director->getProjection());
-
-		const Size& texSize = _texture->getContentSizeInPixel();
-
-		// Calculate the adjustment ratios based on the old and new projections
-		Size size = director->getWinSize();
-
-		float widthRatio = size.width / texSize.width;
-		float heightRatio = size.height / texSize.height;
-
-		Mat4 orthoMatrix;
-		Mat4::createOrthographicOffCenter((float)-1.0 / widthRatio, (float)1.0 / widthRatio, (float)-1.0 / heightRatio, (float)1.0 / heightRatio, -1, 1, &orthoMatrix);
-		director->multiplyMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION, orthoMatrix);
-	}
-
+	
 }
 
 void RenderTexture::end()
 {
-	Director* director = Director::getInstance();
-	director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
-	director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+//	Director* director = Director::getInstance();
+	//director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+//	director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
 }
 
 void RenderTexture::saveToFile(std::string filename)
@@ -255,4 +256,17 @@ Image* RenderTexture::newImage()
 	CC_SAFE_DELETE_ARRAY(tempData);
 
 	return image;
+}
+
+RenderTexture::~RenderTexture()
+{
+	if (_FBO)
+	{
+		glDeleteFramebuffers(1, &_FBO);
+	}
+
+	if (_depthRenderBufffer)
+	{
+		glDeleteRenderbuffers(1, &_depthRenderBufffer);
+	}
 }

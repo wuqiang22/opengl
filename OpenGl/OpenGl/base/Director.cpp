@@ -18,13 +18,13 @@ Director*  Director::getInstance()
 
 void Director::initRender()
 {
+	render = new (std::nothrow) Render();
 	render->init();
 }
 
 bool Director::init()
 {
 	initStack();
-	initRender();
 	return true;
 }
 

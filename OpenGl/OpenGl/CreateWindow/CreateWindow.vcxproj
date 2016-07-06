@@ -135,10 +135,13 @@
     <ClInclude Include="..\parse\rapid\rapidxml_print.hpp" />
     <ClInclude Include="..\parse\rapid\rapidxml_utils.hpp" />
     <ClInclude Include="..\parse\tinyxml2\tinyxml2.h" />
+    <ClInclude Include="..\render\ccGLStateManager.h" />
     <ClInclude Include="..\render\CCTexture2D.h" />
+    <ClInclude Include="..\render\CustomCommand.h" />
     <ClInclude Include="..\render\GLProgram.h" />
     <ClInclude Include="..\render\QuadCommand.h" />
     <ClInclude Include="..\render\Render.h" />
+    <ClInclude Include="..\render\RenderTexture.h" />
     <ClInclude Include="..\unzip\crypt.h" />
     <ClInclude Include="..\unzip\ioapi.h" />
     <ClInclude Include="..\unzip\ioapi_mem.h" />
@@ -176,10 +179,13 @@
     <ClCompile Include="..\parse\CCRapidParser.cpp" />
     <ClCompile Include="..\parse\CCSAXParser.cpp" />
     <ClCompile Include="..\parse\tinyxml2\tinyxml2.cpp" />
+    <ClCompile Include="..\render\ccGLStateManager.cpp" />
     <ClCompile Include="..\render\CCTexture2D.cpp" />
+    <ClCompile Include="..\render\CustomCommand.cpp" />
     <ClCompile Include="..\render\GLProgram.cpp" />
     <ClCompile Include="..\render\QuadCommand.cpp" />
     <ClCompile Include="..\render\Render.cpp" />
+    <ClCompile Include="..\render\RenderTexture.cpp" />
     <ClCompile Include="..\unzip\ioapi.cpp" />
     <ClCompile Include="..\unzip\ioapi_mem.cpp" />
     <ClCompile Include="..\unzip\unzip.cpp" />
