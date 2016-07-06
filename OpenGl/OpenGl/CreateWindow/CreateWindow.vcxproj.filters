@@ -225,6 +225,9 @@
     <ClInclude Include="..\render\RenderTexture.h">
       <Filter>render</Filter>
     </ClInclude>
+    <ClInclude Include="..\base\ClippingNode.h">
+      <Filter>base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -346,6 +349,9 @@
     </ClCompile>
     <ClCompile Include="..\render\RenderTexture.cpp">
       <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\base\ClippingNode.cpp">
+      <Filter>base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

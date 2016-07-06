@@ -102,6 +102,8 @@ public:
 
 	void setUniformsForBuiltins();
 	void setUniformsForBuiltins(const Mat4& modelView);
+
+	GLint getUniformLocation(const std::string& attributeName) const;
 public:
 	GLuint shaderProgram,texture2d0Pos;
 

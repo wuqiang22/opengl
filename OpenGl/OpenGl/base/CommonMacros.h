@@ -14,6 +14,8 @@ typedef LONG_PTR SSIZE_T;
 typedef SSIZE_T ssize_t;
 #endif // __SSIZE_T
 
+#define STRINGIFY(A)  #A
+
 #define CC_DLL     __declspec(dllexport)
 #define CC_UNUSED_PARAM(unusedparam) (void)unusedparam
 

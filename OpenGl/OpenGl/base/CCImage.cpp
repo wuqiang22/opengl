@@ -2235,6 +2235,8 @@ bool Image::saveImageToPNG(const std::string& filePath, bool isToRGB)
                     }
                 }
 
+				
+
                 for (int i = 0; i < (int)_height; i++)
                 {
                     row_pointers[i] = (png_bytep)tempData + i * _width * 3;
@@ -2256,6 +2258,12 @@ bool Image::saveImageToPNG(const std::string& filePath, bool isToRGB)
                 {
                     row_pointers[i] = (png_bytep)_data + i * _width * 4;
                 }
+
+				int r = row_pointers[0][0];
+				int g = row_pointers[0][1];
+				int b = row_pointers[0][2];
+				int a = row_pointers[0][3];
+
 
                 png_write_image(png_ptr, row_pointers);
 

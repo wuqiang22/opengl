@@ -90,6 +90,7 @@
     <ClInclude Include="..\base\CCStdC.h" />
     <ClInclude Include="..\base\ccTypes.h" />
     <ClInclude Include="..\base\CCValue.h" />
+    <ClInclude Include="..\base\ClippingNode.h" />
     <ClInclude Include="..\base\CommonMacros.h" />
     <ClInclude Include="..\base\CommonUtil.h" />
     <ClInclude Include="..\base\Data.h" />
@@ -152,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="..\base\CCImage.cpp" />
     <ClCompile Include="..\base\CCValue.cpp" />
+    <ClCompile Include="..\base\ClippingNode.cpp" />
     <ClCompile Include="..\base\CommonUtil.cpp" />
     <ClCompile Include="..\base\Data.cpp" />
     <ClCompile Include="..\base\Director.cpp" />

@@ -1,8 +1,6 @@
 #include "Sprite.h"
 #include "CommonMacros.h"
 
-#define STRINGIFY(A)  #A
-
 #include "render/ccShader_PositionTextureColor_noMVP.frag"
 #include "render/ccShader_PositionTextureColor_noMVP.vert"
 

@@ -17,6 +17,7 @@ int main()
 	delete glView;
 	glView = nullptr; 
 
+
 	system("pause");
 	return 1;
 }

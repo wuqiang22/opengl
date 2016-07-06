@@ -2,6 +2,7 @@
 #include "render/QuadCommand.h"
 #include "Director.h"
 #include "render/RenderTexture.h"
+#include "ClippingNode.h"
 
 
 class GLFWEventHandler
@@ -195,9 +196,9 @@ void GLView::initTexture2d()
 	sprite1->setPosition(0, 0);
 	sprite1->setScale(2);
 
-	Sprite* sprite2 = Sprite::createWithFileName("E://3.png");
-	_sprites.push_back(sprite2);
-	sprite2->setPosition(250, 200);
+//	Sprite* sprite2 = Sprite::createWithFileName("E://3.png");
+//	_sprites.push_back(sprite2);
+//	sprite2->setPosition(250, 200);
 
 }
 
@@ -208,7 +209,8 @@ void GLView::render()
 	m_render = Director::getInstance()->getRenderer();
 	initTexture2d();
 
-	bool saveImage = true;
+	bool saveImage = false;  //½ØÍ¼¹¦ÄÜ RenderTexure
+	bool testClippingNode = true;
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(_mainWindow))
@@ -218,29 +220,47 @@ void GLView::render()
 
 		if (saveImage)
 		{
+			/*  ²âÊÔ RenderTexture
 			Size size = Director::getInstance()->getWinSize();
-			RenderTexture* renderTexure = RenderTexture::create(size.width/2, size.height/2);
+			RenderTexture* renderTexure = RenderTexture::create(20,20);
 			renderTexure->begin();
 			renderTexure->end();
 
 			renderTexure->onBegin();
 			for (Sprite* sprite : _sprites)
 			{
+				sprite->setPosition(20, 20);
 				sprite->visit(&m_render);
+				sprite->setPosition(0, 0);
 			}
 			m_render.draw();
 			renderTexure->onEnd();
 			renderTexure->saveToFile("1.png");
 			saveImage = false;
 
-			CC_SAFE_DELETE(renderTexure);
+			CC_SAFE_DELETE(renderTexure);*/
+		}
+		else if (testClippingNode){
+
+			auto _director = Director::getInstance();
+
+			ClippingNode* clippingNode = ClippingNode::create();
+			Sprite* back = Sprite::createWithFileName("E://3.png");
+			Sprite* stencil = Sprite::createWithFileName("E://4.png");
+			clippingNode->setSprite(back);
+			clippingNode->setStencil(stencil);
+			clippingNode->visit(&m_render);
+
+			m_render.draw(); 
+
+	//		testClippingNode = false;
 		}
 		else{
+			
 			for (Sprite* sprite : _sprites)
 			{
 				sprite->visit(&m_render);
 			}
-
 
 			m_render.draw();
 

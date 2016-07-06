@@ -127,6 +127,11 @@ void GLProgram::initWithSource(const char* vertexShaderSource, const char*  frag
 	}
 }
 
+GLint GLProgram::getUniformLocation(const std::string& attributeName) const 
+{
+	return glGetUniformLocation(shaderProgram, attributeName.c_str());
+}
+
 void GLProgram::apply(const Mat4&  modelView)
 {
 	glUseProgram(this->shaderProgram);

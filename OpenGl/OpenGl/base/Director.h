@@ -40,6 +40,7 @@ public:
 
 	void initRender();
 	inline const Render& getRenderer(){ return *render; }
+	void loadIdentityMatrix(MATRIX_STACK_TYPE type);
 private:
 private:
 	GLView* _glView;

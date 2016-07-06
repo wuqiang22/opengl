@@ -16,6 +16,9 @@ Director*  Director::getInstance()
 	return _defaultDirector;
 }
 
+
+
+
 void Director::initRender()
 {
 	render = new (std::nothrow) Render();
@@ -82,6 +85,20 @@ const Mat4& Director::getMatrix(MATRIX_STACK_TYPE type)
 
 	CCLOG("invalide type");
 	return nullptr;
+}
+
+void Director::loadIdentityMatrix(MATRIX_STACK_TYPE type)
+{
+	if (MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW == type)
+	{
+		_modalViewMatrixStack.top() = Mat4::IDENTITY;
+	}
+	else if (MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION == type)
+	{
+		_projectionMatrixStack.top() = Mat4::IDENTITY;
+	}
+	CCLOG("invalide type");
+
 }
 
 void Director::multiplyMatrix(MATRIX_STACK_TYPE type, Mat4& mat4)
