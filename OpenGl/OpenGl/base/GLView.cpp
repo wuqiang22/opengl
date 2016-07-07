@@ -149,7 +149,7 @@ bool GLView::createWindow(std::string windowname)
 	{
 		return false;
 	}
-	GLViewContentAtts _glContextAttrs = { 8, 8, 8, 8, 24, 8 };
+	_glContextAttrs = { 8, 8, 8, 8, 24,8 };
 
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	glfwWindowHint(GLFW_RED_BITS, _glContextAttrs.redBits);
@@ -203,20 +203,30 @@ void GLView::initTexture2d()
 }
 
 
-
 void GLView::render()
 {
 	m_render = Director::getInstance()->getRenderer();
 	initTexture2d();
+	initClippingNode();
+
+	ClippingNode* clippingNode = ClippingNode::create();
+	Sprite* stencil = Sprite::createWithFileName("E://5.png");
+	Sprite* back = Sprite::createWithFileName("E://3.png");
+//	back->setPosition(200, 10);
+	stencil->setPosition(200, 10);
+	clippingNode->setSprite(back);
+	clippingNode->setStencil(stencil);
+	clippingNode->setAlpha(1.0);
 
 	bool saveImage = false;  //截图功能 RenderTexure
-	bool testClippingNode = true;
+	bool testClippingNode = true;  //遮罩功能ClippingNode
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(_mainWindow))
 	{
 		glClearColor(0.2, 0.2, 0.2, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
+		
 
 		if (saveImage)
 		{
@@ -241,19 +251,18 @@ void GLView::render()
 			CC_SAFE_DELETE(renderTexure);*/
 		}
 		else if (testClippingNode){
-
+			
 			auto _director = Director::getInstance();
+			clippingNode->onBeforeVisit();
+			
+			stencil->visit(&m_render);
+			m_render.draw();
+			clippingNode->onAfterVisitStencil();
 
-			ClippingNode* clippingNode = ClippingNode::create();
-			Sprite* back = Sprite::createWithFileName("E://3.png");
-			Sprite* stencil = Sprite::createWithFileName("E://4.png");
-			clippingNode->setSprite(back);
-			clippingNode->setStencil(stencil);
-			clippingNode->visit(&m_render);
+			back->visit(&m_render);
+			m_render.draw();
 
-			m_render.draw(); 
-
-	//		testClippingNode = false;
+			clippingNode->onAfterVisit();
 		}
 		else{
 			
@@ -264,7 +273,6 @@ void GLView::render()
 
 			m_render.draw();
 
-			
 		}
 		
 

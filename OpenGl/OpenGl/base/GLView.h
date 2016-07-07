@@ -65,6 +65,8 @@ private:
 	Size _designResolutionSize;
 
 	std::vector<Sprite*> _sprites;
+
+
 };
 
 #endif

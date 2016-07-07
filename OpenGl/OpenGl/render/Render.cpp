@@ -17,6 +17,7 @@ void Render::init()
 
 void Render::draw()
 {
+
 	//Bind VAO
 	glBindVertexArray(_quadVAO);
 	//Set VBO data
@@ -64,6 +65,7 @@ void Render::draw()
 
 	_numberQuads = 0;
 	quadCmds.clear();
+
 }
 
 void Render::putQuadCmd(QuadCommand* command)

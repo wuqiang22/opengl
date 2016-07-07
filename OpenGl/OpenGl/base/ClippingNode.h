@@ -4,6 +4,7 @@
 #include "GL/glew.h"
 #include "glfw3.h"
 #include "Sprite.h"
+#include "render/GLProgram.h"
 
 class ClippingNode{
 public:
@@ -16,6 +17,7 @@ public:
 	static ClippingNode* create(Sprite* pStencil);
 	bool init();
 	bool init(Sprite* pStencil);
+	void initGLProgram();
 
 	void onBeforeVisit();
 	void onAfterVisitStencil();
@@ -28,11 +30,14 @@ public:
 
 	void visit(Render* render);
 
+	void setInverse(bool inverse);
+	void setAlpha(float alpha);
 private:
 	Sprite* self;
 	Sprite* m_stencil;
 	
 	GLint mask_layer;
+	GLint mask_layer_le;
 	bool _inverted;
 
 	GLboolean _currentStencilEnabled;
@@ -48,6 +53,11 @@ private:
 	GLboolean _currentAlphaTestEnabled;
 	GLenum _currentAlphaTestFunc;
 	GLclampf _currentAlphaTestRef;
+
+
+	GLfloat _alphaThreshold;
+
+	GLProgram* glProgram;
 };
 
 #endif
