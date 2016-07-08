@@ -3,6 +3,7 @@
 #include "Director.h"
 #include "render/RenderTexture.h"
 #include "ClippingNode.h"
+#include "2d/DrawNode.h"
 
 
 class GLFWEventHandler
@@ -207,7 +208,6 @@ void GLView::render()
 {
 	m_render = Director::getInstance()->getRenderer();
 	initTexture2d();
-	initClippingNode();
 
 	ClippingNode* clippingNode = ClippingNode::create();
 	Sprite* stencil = Sprite::createWithFileName("E://5.png");
@@ -219,7 +219,9 @@ void GLView::render()
 	clippingNode->setAlpha(1.0);
 
 	bool saveImage = false;  //截图功能 RenderTexure
-	bool testClippingNode = true;  //遮罩功能ClippingNode
+	bool testClippingNode = false;  //遮罩功能ClippingNode
+	bool testDrawNodePoint = false;  //DrawNode功能之画点
+	bool testDrawNodeLine = true; //DrawNode功能之画线
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(_mainWindow))
@@ -251,7 +253,7 @@ void GLView::render()
 			CC_SAFE_DELETE(renderTexure);*/
 		}
 		else if (testClippingNode){
-			
+			/* 测试ClippingNode
 			auto _director = Director::getInstance();
 			clippingNode->onBeforeVisit();
 			
@@ -262,7 +264,25 @@ void GLView::render()
 			back->visit(&m_render);
 			m_render.draw();
 
-			clippingNode->onAfterVisit();
+			clippingNode->onAfterVisit();*/
+		} else if (testDrawNodePoint)
+		{
+			DrawNode* drawNode = DrawNode::create();
+			CHECK_GL_ERROR_DEBUG();
+			for (int i = 1; i <= 100; i++)
+			{
+				drawNode->drawPoint(Vec2(100+i, 100), 1, Color4F(255.0, 0, 0, 255.0));
+			}
+			
+			drawNode->onDrawPoinit();
+	//		CHECK_GL_ERROR_DEBUG();
+		}else if (testDrawNodeLine)
+		{
+			DrawNode* drawNode = DrawNode::create();
+			CHECK_GL_ERROR_DEBUG();
+			drawNode->drawLine(Vec2(100, 100), Vec2(200, 200), Color4F(255.0, 0, 0, 255.0));
+			drawNode->drawLine(Vec2(100, 200), Vec2(200, 100), Color4F(255.0, 0, 0, 255.0));
+			drawNode->onDrawLine();
 		}
 		else{
 			

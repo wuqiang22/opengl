@@ -37,6 +37,9 @@
     <Filter Include="image">
       <UniqueIdentifier>{d0f5bdaa-e526-4206-85d0-81cc46b9feac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="2d">
+      <UniqueIdentifier>{6451e62f-7b28-483f-9c35-9ae74c28a76e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\glfw3\glfw3.h">
@@ -228,6 +231,9 @@
     <ClInclude Include="..\base\ClippingNode.h">
       <Filter>base</Filter>
     </ClInclude>
+    <ClInclude Include="..\2d\DrawNode.h">
+      <Filter>2d</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -352,6 +358,9 @@
     </ClCompile>
     <ClCompile Include="..\base\ClippingNode.cpp">
       <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\2d\DrawNode.cpp">
+      <Filter>2d</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

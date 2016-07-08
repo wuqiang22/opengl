@@ -94,6 +94,7 @@ public:
 	bool compileShader(GLuint* shader, GLenum type, const GLchar* shaderSource);
 	void link();
 	void apply(const Mat4& modelView);
+	void apply();
 	void bindPredefinedVertexAttribs();
 
 	void parseAttribute();

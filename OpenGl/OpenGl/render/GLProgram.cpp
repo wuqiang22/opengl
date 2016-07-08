@@ -118,18 +118,17 @@ void GLProgram::initWithSource(const char* vertexShaderSource, const char*  frag
 	updateUniforms();
 
 	texture2d0Pos = glGetUniformLocation(shaderProgram, "CC_Texture0");
-
-	GLenum err = glGetError();
-	if (err != GL_NO_ERROR)
-	{
-		printf("glError: 0x%04X", err);
-		//		CCLOG("cocos2d: Texture2D: Error uploading compressed texture level: %u . glError: 0x%04X", i, err);
-	}
 }
 
 GLint GLProgram::getUniformLocation(const std::string& attributeName) const 
 {
 	return glGetUniformLocation(shaderProgram, attributeName.c_str());
+}
+
+void GLProgram::apply()
+{
+	glUseProgram(this->shaderProgram);
+	setUniformsForBuiltins();
 }
 
 void GLProgram::apply(const Mat4&  modelView)
@@ -205,7 +204,7 @@ void GLProgram::parseUniforms()
 			GLchar* name = (GLchar*)alloca((maxLength+1)*sizeof(GLchar));
 			glGetActiveUniform(shaderProgram, i, maxLength, nullptr, &size, &type, name);
 			name[maxLength] = '\0';
-			if (strcmp(name,"CC_")!=0)
+			if (strncmp("CC_", name, 3) != 0)
 			{
 				Uniform uniform;
 				GLint location = glGetUniformLocation(shaderProgram, name);
